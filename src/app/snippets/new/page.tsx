@@ -2,7 +2,7 @@ import { db } from '@/db';
 import { redirect } from 'next/navigation';
 
 export default function CreateSnippetsPage() {
-  const createNewSnippet = async (formData: FormData) => {
+  async function createNewSnippet(formData: FormData) {
     'use server';
 
     const title = formData.get('title') as string;
@@ -17,7 +17,7 @@ export default function CreateSnippetsPage() {
 
     console.log('new snippet: ', snippet);
     redirect('/');
-  };
+  }
   return (
     <form action={createNewSnippet}>
       <h3>Create a Snippet</h3>
