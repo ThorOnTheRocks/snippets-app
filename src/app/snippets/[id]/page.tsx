@@ -7,7 +7,9 @@ export type SnippetShowPageProps = {
   };
 };
 
-async function ShowSnippetPage({ params }: SnippetShowPageProps) {
+export default async function ShowSnippetPage({
+  params,
+}: SnippetShowPageProps) {
   const snippet = await db.snippet.findFirst({
     where: {
       id: parseInt(params.id),
@@ -20,5 +22,3 @@ async function ShowSnippetPage({ params }: SnippetShowPageProps) {
 
   return <div>{snippet?.title}</div>;
 }
-
-export default ShowSnippetPage;
