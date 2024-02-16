@@ -28,7 +28,6 @@ export async function createNewSnippet(
         code,
       },
     });
-    redirect('/');
   } catch (error) {
     if (error instanceof Error) {
       return {
@@ -40,4 +39,5 @@ export async function createNewSnippet(
       };
     }
   }
+  redirect('/');
 }

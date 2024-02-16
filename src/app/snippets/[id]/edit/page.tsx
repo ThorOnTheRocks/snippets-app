@@ -1,5 +1,6 @@
 import { db } from '@/db';
 import SnippetEditForm from '@/components/SnippetEditForm';
+import { Snippet } from '@prisma/client';
 
 export type SnippetEditPageProps = {
   params: {
@@ -11,11 +12,11 @@ export default async function EditSnippetPage({
   params,
 }: SnippetEditPageProps) {
   const id = parseInt(params.id);
-  const snippet = await db.snippet.findFirst({
+  const snippet = (await db.snippet.findFirst({
     where: {
       id,
     },
-  });
+  })) as Snippet;
 
   return (
     <section>
