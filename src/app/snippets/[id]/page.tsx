@@ -1,6 +1,6 @@
 import { db } from '@/db';
 import Link from 'next/link';
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import { deleteSnippet } from '@/actions/deleteSnippet';
 
 export type SnippetShowPageProps = {
